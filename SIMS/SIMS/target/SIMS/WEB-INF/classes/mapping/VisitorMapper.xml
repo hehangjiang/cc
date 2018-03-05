@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.VisitorDao">
+
+    <resultMap id="VisitorBaseMap" type="com.model.Visitor">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="visitorName" property="visitorName" jdbcType="VARCHAR"/>
+        <result column="visitorPhone" property="visitorPhone" jdbcType="VARCHAR"/>
+        <result column="visitorEmail" property="visitorEmail" jdbcType="VARCHAR"/>
+        <result column="host" property="host" jdbcType="VARCHAR"/>
+        <result column="visitTime" property="visitTime" jdbcType="VARCHAR"/>
+        <result column="message" property="message" jdbcType="VARCHAR"/>
+        <result column="image" property="image" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <!--用户注册-->
+    <insert id="application">
+        INSERT INTO visitor (visitorName,visitorPhone,visitorEmail,host,message,agree)
+        VALUE (#{visitorName},#{visitorPhone},#{visitorEmail},#{host},#{message},#{agree})
+    </insert>
+
+    <!--根据agree统计申请总人次、来访人次、未处理人次-->
+    <select id="countByAgree" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM visitor
+        WHERE host = #{host} AND agree = #{agree}
+    </select>
+
+
+    <!--根据时间显示来访记录-->
+    <select id="countByTime" resultMap="VisitorBaseMap">
+        SELECT * FROM visitor
+        WHERE host = #{host} AND visitTime = #{visitTime}
+    </select>
+
+    <update id="agree">
+        UPDATE visitor
+        SET agree = #{agree}
+        WHERE visitorName = #{visitorName} AND host = #{host} AND visitTime = #{visitTime}
+    </update>
+
+    <!--查询来访记录-->
+    <select id="queryByAgree" resultMap="VisitorBaseMap">
+        SELECT * FROM visitor
+        WHERE host = #{host} AND agree = #{agree}
+    </select>
+
+
+</mapper>

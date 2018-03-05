@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Matrix Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <style type="text/css">
+        .applicationNote ul{
+            background-color: rgba(220,220,220,0.4);
+            margin: 5px;
+            padding: 15px;
+        }
+        .applicationNote ul li{
+            list-style: none;
+            padding: 5px 0 5px 0;
+        }
+        .applicationNote ul li+li{
+            list-style: none;
+            border-top: #979797 solid 1px;
+            padding: 5px 0 5px 0;
+
+        }
+        .applicationNote :nth-child(1){
+            font-size: large;
+        }
+        .applicationNote{
+            margin:0  150px;
+        }
+        .title{
+            color: #125aa4;
+            padding-bottom: 10px;
+            border-bottom: solid 2px;
+        }
+        .application ul li{
+            list-style: none;
+        }
+        .application{
+            background-color: rgba(220,220,220,0.4);
+            padding: 15px;
+            margin: 20px 150px;
+        }
+        .applicationContent{
+
+            margin: 15px 30px;
+        }
+        form{
+            margin: 0 auto;
+            display: block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body style="background: #FFFFFF">
+
+<!--Header-part-->
+<div id="header">
+    <h2> 留学生信息管理系统</h2>
+</div>
+<!--close-Header-part-->
+
+<!--顶部导航栏-->
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
+                <li class="divider"></li>
+                <li><a href="login-student.html"><i class="icon-key"></i> Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div id="mainContent">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="applicationNote">
+        <p class="title">上传附件</p>
+
+        <ul>
+            <li>提示</li>
+            <li>1.请根据右侧所示材料列表上传相应电子文档。</li>
+            <li>2.请保证上传文档的清晰可读。</li>
+            <li>3.系统只接受一下格式的文档： RAR, PDF, JPG, PNG, GIF,DOC,DOCX.</li>
+            <li>4.单个上传文档不能超过 5M.</li>
+        </ul>
+    </div>
+
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold"><span style="color: red">*</span> 1.Passport photo</div>
+
+
+        <div class="applicationContent">A recent passport-sized photo of the applicant（！！please use Firefox or Chrome browser！！）
+            请点击<a href="#" style="color: cornflowerblue">这里</a> 下载模板，按要求完成后上传。</div>
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <br>
+            <input type="file" name="file" id="file" />
+            <br>
+            <input type="submit" value="上传">
+            <input type="text"  name="ID" style="visibility: hidden;">
+        </form>
+
+
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold"><span style="color: red">*</span>2.Photocopy of valid passport</div>
+
+
+        <div class="applicationContent">With name, passport number & expiration date, and photo included</div>
+
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold">3.Health certificate</div>
+
+
+        <div class="applicationContent">Photocopy of notarized foreigner physical examination record (for durations of study over 6 months)</div>
+
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold">4.Certificate of HSK</div>
+
+
+        <div class="applicationContent">Certificate of HSK (Chinese Proficiency Test),No need for English medium programs</div>
+
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold"><span style="color: red">*</span>5.Certificate/diploma of highest education</div>
+
+
+        <div class="applicationContent">Graduation certificate in languages other than Chinese or English should be translated into Chinese or English and be certified by notarization.
+        </div>
+
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold"><span style="color: red">*</span>6.Academic transcript of highest education</div>
+
+
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold">7.Recommendation letter from former school in China</div>
+
+        <div class="applicationContent">For the student who is holding a residence permit issued by immigration in China and wants to transfer to our school，a recommendation letter（performance） from former school is required.</div>
+
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold">8.Current visa or residence permit page</div>
+
+        <div class="applicationContent">Current visa or residence permit page if you are in China（important if visa extending in China is required by student）</div>
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div class="application">
+
+        <div style="color:cornflowerblue;font-weight: bold">9.Transcripts and attendance letter from former school in China</div>
+        <div class="applicationContent">Transcripts and attendance letter from former school in China （for transfer students )</div>
+        <button type="button" class="btn button">上传</button>
+    </div>
+    <div style="margin: 50px 0 10px 500px;">
+        <button type="button" class="btn btn-primary">上一步</button>
+        <button type="button" style="margin:20px; ">下一步</button>
+    </div>
+</div>
+
+
+
+
+
+
+<!--end-Footer-part-->
+<!--end-Footer-part-->
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/matrix.js"></script>
+</body>
+</html>

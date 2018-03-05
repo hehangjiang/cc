@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form id="loginform" class="form-vertical" action="${pageContext.request.contextPath}/User/countAll.actionf?">
+    <h3>登录</h3>
+    <br>
+    <div class="control-group">
+        <div class="controls">
+            <div class="input-prepend">
+                <input type="text" name="userAccount" placeholder="用户名" />
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="control-group">
+        <div class="controls">
+            <div class="input-prepend">
+                <input type="password" name="userPassword" placeholder="密码" />
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="form-actions">
+        <span class="pull-left"><a href="" class="flip-link" id="to-recover">忘记</a></span>
+        <span class="pull-center"><input type="submit" class="btn btn-inverse" value="登录" /></span>
+        <span class="pull-right"><a href="registered.jsp" class="fluid-link" id="to-register">注册</a></span>
+    </div>
+</form>
+    <script>
+        function countAll() {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/User/countAll",
+                type: "POST",
+                cache: false,
+                data:{String: "何杭江"},
+                success: function(all){
+                    alert(all);
+
+                }
+//        error: function(result, status) {
+//            if (status == 'error') {
+//                alert("系统发生错误");
+//            }
+//        }
+            });
+
+        }
+
+    </script>
+
+
+</body>
+</html>

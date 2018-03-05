@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            background-color: rgba(234, 234, 234, 0.92);
+        }
+        .a{
+            float: left;
+            color: red;
+        }
+        ul{
+            list-style: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 0;
+            padding-top: 2px;
+            padding-bottom: 2px;
+
+
+        }
+
+        .title{
+            color: #005599;
+            font-weight: bolder;
+            font-size: 20px;
+            padding: 10px 0 2px 80px;
+
+        }
+        .title1{
+            font-size:23px;
+            font-weight: bold;
+            background-color: rgba(234, 234, 234, 0.92);
+            margin: 30px ;
+            padding: 10px 0 2px 30px;
+            border-bottom: #696769 5px solid;
+
+        }
+        .note{
+            padding: 0 0 15px 0;
+            margin: 0;
+            color: #8a8a8a;
+        }
+
+        .form-group{
+            margin-left: 100px;
+        }
+
+    </style>
+</head>
+<body style="background: #FFF">
+<!--Header-part-->
+<div id="header">
+    <h2> 留学生信息管理系统</h2>
+</div>
+<!--close-Header-part-->
+
+<!--顶部导航栏-->
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
+                <li class="divider"></li>
+                <li><a href="login-student.html"><i class="icon-key"></i> Log Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div id="mainContent">
+    <form class="form">
+        <p class="title1">Personal Information</p>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="FamilyName">姓/Family name</label>
+            <input class="form-control" type="text" name="FamilyName" id="FamilyName" >
+            <p class="note">Same as in your Passport</p>
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label  for="Givennames">名/Given names</label>
+            <input type="text" name="Givennames" id="Givennames">
+            <p class="note">Same as in your Passport</p>
+        </div>
+        <div class="form-group">
+            <label  for="ChineseName">中文姓名/Chinese Name</label>
+            <input type="text" name="ChineseName" id="ChineseName" >
+            <p class="note">If applicable,no more than 6 characters</p>
+        </div>
+        <div class="form-group">
+                <label >性别/Gender</label>
+                <label class="radio-inline" for="male">
+                    <input type="radio" name="Gender" id="male" value="male">男/Male
+                </label>
+
+                <label  class="radio-inline" for="female">
+                    <input type="radio" name="Gender" id="female" value="famale">女/Female
+                </label>
+        </div>
+        <br>
+        <div class="form-group">
+            <fieldset data-role="fieldcontain">
+                <label for="Nationality">国籍/Nationality</label>
+                <select name="Nationality" id="Nationality">
+                    <option>--please select--</option>
+                    <option>Chinese</option>
+                    <option>Japan</option>
+                    <option>Cuba</option>
+                </select>
+            </fieldset>
+            <p class="b=note">Nationality in passport</p>
+
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="PassportNo">护照号码/PassportNo.</label>
+            <input type="text" name="PassportNo" id="PassportNo">
+
+        </div>
+        <div class="form-group">
+            <label for="ValidFrom">护照有效期起/Valid From</label>
+            <input type="text" name="ValidFrom" id="ValidFrom">
+            <p class="note">Passport Valid From</p>
+
+        </div>
+        <div class="form-group">
+            <label for="ValidUntil">护照有效期止/Valid Until</label>
+            <input type="text" name="ValidUntil" id="ValidUntil">
+            <p class="note">Validation of passport</p>
+
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="DateOfBirth">出生日期/Date of Birth</label>
+            <input type="date" name="DateOfBirth" id="DateOfBirth">
+            <p class="note">Please select your date of birth exactly as it is stated in your passport.</p>
+
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="PlaceOfBirth">出生地/Place of Birth</label>
+            <input type="text" name="PlaceOfBirth" id="PlaceOfBirth">
+            <p class="note">Place of Birth</p>
+
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="NativeLanguage">母语/Native language</label>
+            <input type="text" name="PlaceOfBirth" id="NativeLanguage">
+            <p class="note">Native language</p>
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="Religion">宗教信仰/Religion</label>
+            <input type="text" name="Religion" id="Religion">
+            <p class="note">Religion</p>
+        </div>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="PlaceOfStudyOrWork">目前所在学校或机构/Place of study or work</label>
+            <input type="text" name="PlaceOfStudyOrWork" id="PlaceOfStudyOrWork">
+        </div>
+        <div class="form-group">
+            <label for="Occupation">职业/Occupation</label>
+            <textarea name="Occupation" id="Occupation"></textarea>
+        </div>
+
+        <div class="form-group">
+            <span class="a">*</span>
+            <label>婚姻状况/Marital Status</label>
+            <label class="radio-inline" for="Married"><input type="radio" name="MaritalStatus" id="Married" value="Married">已婚/Married</label>
+
+            <label class="radio-inline" for="Other"><input type="radio" name="MaritalStatus" id="Other" value="Other">
+                其他/Other</label>
+            <label class="radio-inline"for="Single"><input type="Radio" name="单身/Single" id="Single" value="Single">
+                单身/Single</label>
+        </div>
+        <br>
+        <div class="form-group"><span class="a">*</span>
+            <label for="HighestAcademicDegreeObtained">最后学历/Highest Academic Degree Obtained</label>
+            <input type="text" name="HighestAcademicDegreeObtained" id="HighestAcademicDegreeObtained">
+        </div>
+        <p class="title">CURRENT CONTACT</p>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="PhoneNo">电话/PhoneNo.</label>
+            <input type="text" name="PhoneNo" id="PhoneNo">
+            <p class="note">including international prefix</p>
+        </div>
+        <div class="form-group"><label for="Fax">传真/Fax</label>
+            <input type="text" name="Fax" id="Fax">
+        </div>
+        <div class="form-group"><span class="a">*</span>
+            <label for="E-mail">邮箱/Fax</label>
+            <input type="text" name="E-mail" id="E-mail">
+        </div>
+        <div class="form-group"> <span class="a">*</span>
+            <label for="HomeAddress">家庭住址/Home address</label>
+            <input type="text" name="HomeAddress" id="HomeAddress">
+            <p class="note">Home address</p>
+        </div>
+        <p class="title">LANGUAGE QUALIFICATIONS/PROFICIENCY</p>
+        <div class="form-group"> <fieldset data-role="fieldcontain">
+            <label for="Chinese">汉语/Chinese</label>
+            <select name="Chinese" id="Chinese">
+                <option>较好/Fair</option>
+                <option>好/Good</option>
+                <option>差/Poor</option>
+                <option>很好/Excellent</option>
+                <option>不会/None</option>
+            </select>
+        </fieldset>
+            <p class="b=note">Current level of Chinese</p>
+        </div>
+        <div class="form-group">
+            <fieldset data-role="fieldcontain">
+            <label for="HSKLevel">HSK考试等级/HSK level</label>
+            <select name="HSKLevel" id="HSKLevel">
+                <option>HSK6</option>
+                <option>HSK5</option>
+                <option>HSK4</option>
+                <option>HSK3</option>
+                <option>HSK2</option>
+                <option>HSK1</option>
+                <option>None</option>
+            </select>
+            </fieldset>
+            <p class="b=note">Current level of Chinese</p>
+        </div>
+        <div class="form-group">
+            <label for="HSKmarks">参加考试的时间/HSK marks</label>
+            <input type="text" name="HSKmarks" id="HSKmarks">
+            <p class="note">HSK marks</p>
+        </div>
+        <div class="form-group">
+            <label for="ObtainedTime">取得成绩/Obtained Time</label>
+            <input type="textarea"  name="ObtainedTime" id="ObtainedTime">
+            <p class="note">Where and how long have you studied Chinese?</p>
+        </div>
+        <p class="title">YOUR FINANCIAL GUARANTEE</p>
+        <div class="form-group">
+            <label for="SponsorName">姓名/Name</label>
+            <input type="text" name="SponsorName" id="SponsorName">
+            <p class="note">Sponsor’s name</p>
+        </div>
+        <div class="form-group">
+            <label for="SponsorAddress">联系地址/Address</label>
+            <input type="text" name="SponsorAddress" id="SponsorAddress">
+            <p class="note">Sponsor’s address</p>
+        </div>
+        <div class="form-group">
+            <label for="SponsorTel">联系电话/Tel</label>
+            <input type="text" name="SponsorTel" id="SponsorTel">
+            <p class="note">Sponsor’s tel</p>
+        </div>
+        <div class="form-group"><label for="SponsorOrganization">工作机构/Organization</label>
+            <input type="text" name="SponsorOrganization" id="SponsorOrganization">
+        </div>
+        <div class="form-group"><label for="SponsorPosition">职务/职称/Position/Title</label>
+            <input type="text" name="SponsorPosition" id="SponsorPosition">
+        </div>
+        <p class="title">THE GUARANTOR CHARGING YOUR CASE IN CHINA</p>
+        <div class="form-group">
+            <label for="CHINASponsorName">姓名/Name</label>
+            <input type="text" name="CHINASponsorName" id="CHINASponsorName">
+        </div>
+        <div class="form-group">
+            <label for="CHINASponsorAddress">联系地址/Address</label>
+            <input type="text" name="CHINASponsorAddress" id="CHINASponsorAddress">
+        </div>
+        <div class="form-group">
+            <label for="CHINASponsorTel">联系电话/Tel</label>
+            <input type="text" name="CHINASponsorTel" id="CHINASponsorTel">
+        </div>
+        <div class="form-group">
+            <label for="CHINASponsorOrganization">工作机构/Organization</label>
+            <input type="text" name="CHINASponsorOrganization" id="CHINASponsorOrganization">
+        </div>
+        <div class="form-group"><label for="CHINASponsorPosition">职务/职称/Position/Title</label>
+            <input type="text" name="CHINASponsorPosition" id="CHINASponsorPosition">
+        </div>
+        <p class="title">INFORMATION FOR REFEREES</p>
+        <div class="form-group"><label for="RefereesSponsorName">姓名/Name</label>
+            <input type="text" name="RefereesSponsorName" id="RefereesSponsorName">
+        </div>
+        <div class="form-group">
+            <label for="RefereesSponsorAddress">联系地址/Address</label>
+            <input type="text" name="RefereesSponsorAddress" id="RefereesSponsorAddress">
+        </div>
+        <div class="form-group">
+            <label for="RefereesSponsorTel">联系电话/Tel</label>
+            <input type="text" name="RefereesSponsorTel" id="RefereesSponsorTel">
+        </div>
+        <div class="form-group">
+            <label for="RefereesSponsorOrganization">工作机构/Organization</label>
+            <input type="text" name="RefereesSponsorOrganization" id="RefereesSponsorOrganization">
+
+        </div>
+        <div class="form-group">
+            <label for="RefereesSponsorPosition">职务/职称/Position/Title</label>
+            <input type="text" name="RefereesSponsorPosition" id="RefereesSponsorPosition">
+
+        </div>
+        <p class="title1">Study Plan</p>
+        <p class="title">来华留学专业/FIELD OF STUDY</p>
+        <div class="form-group"> <span class="a" >*</span>
+            <label for="StudyPlanFrom">study plan From</label>
+            <input type="text" name="StudyPlanFrom" id="StudyPlanFrom">
+        </div>
+        <div class="form-group"><span class="a" >*</span>
+            <label for="StudyPlanTo">study plan To</label>
+            <input type="text" name="StudyPlanTo" id="StudyPlanTo">
+        </div>
+        <div class="form-group"><span class="a" >*</span>
+            <label for="Major1">Major1</label>
+            <input type="text" name="Major1" id="Major1">
+        </div>
+        <div class="form-group"><span class="a" >*</span>
+            <label for="Major2">Major2</label>
+            <input type="text" name="Major2" id="Major2">
+        </div>
+        <div class="form-group"><span class="a" >*</span>
+            <label for="Major3">Major3</label>
+            <input type="text" name="Major3" id="Major3">
+        </div>
+        <div class="form-group"> <span class="a">*</span>
+            <label>Accept other majors or not?</label>
+            <label for="AcceptMajorsYes">Yes</label>
+            <input type="radio" name="AcceptMajors" id="AcceptMajorsYes" value="Yes">
+            <label for="AcceptMajorsNo">No</label>
+            <input type="radio" name="AcceptMajors" id="AcceptMajorsNo" value="No">
+        </div>
+        <p class="title1">EDUCATION</p>
+        <p class="title">EDUCATIONAL BACKGROUND</p>
+        <div class="form-group"><label for="Institutions">学校/Institutions</label>
+            <input type="text" name="Institutions" id="Institutions">
+            <p class="note">Please enter the name of the school or college you attended or are currently attending in China（please make sure the information given above is true, correct and complete, or you will accept the consequences）.</p>
+        </div>
+        <div class="form-group"><label for="QualificationObtained">在学状态/Qualification Obtained</label>
+            <input type="text" name="QualificationObtained" id="QualificationObtained">
+            <p class="note">Please specify what type of degree you were awarded or to be awarded（please make sure the information given above is true, correct and complete, or you will accept the consequences）</p>
+        </div>
+        <div class="form-group"><label for="DateOfStart">开始学习/Date of Start</label>
+            <input type="text" name="DateOfStart" id="DateOfStart">
+            <p class="note">Please enter the date you started at the school or college（please make sure the information given above is true, correct and complete, or you will accept the consequences）</p>
+        </div>
+        <div class="form-group"><label for="DateOfGraduation">结束学习/Date of Graduation</label>
+            <input type="text" name="DateOfGraduation" id="DateOfGraduation">
+            <p class="note">Please enter the date you finished or are due to finish at the school or college（please make sure the information given above is true, correct and complete, or you will accept the consequences）</p>
+        </div>
+        <p class="title1">Family Members</p>
+        <p class="title">FATHER</p>
+        <div class="form-group"> <label for="FatherName">FatherName</label>
+            <input type="text" name="FatherName" id="FatherName">
+        </div>
+        <div class="form-group"><label for="FatherAge">FatherAge</label>
+            <input type="text" name="FatherAge" id="FatherAge">
+        </div>
+        <div class="form-group"><label for="FatherOccupation">FatherOccupation</label>
+            <input type="text" name="FatherOccupation" id="FatherOccupation">
+        </div>
+        <div class="form-group"><label for="FatherTel">FatherTel</label>
+            <input type="text" name="FatherTel" id="FatherTel">
+        </div>
+        <div class="form-group"> <label for="FatherEmail">FatherEmail</label>
+            <input type="text" name="FatherEmail" id="FatherEmail">
+        </div>
+        <p class="title">MOTHER</p>
+        <div class="form-group"><label for="MotherName">MotherName</label>
+            <input type="text" name="MotherName" id="MotherName">
+        </div>
+        <div class="form-group"><label for="MotherAge">MotherAge</label>
+            <input type="text" name="MotherAge" id="MotherAge">
+        </div>
+        <div class="form-group"> <label for="MotherOccupation">MotherOccupation</label>
+            <input type="text" name="MotherOccupation" id="MotherOccupation">
+        </div>
+        <div class="form-group"> <label for="MotherTel">MotherTel</label>
+            <input type="text" name="MotherTel" id="MotherTel">
+        </div>
+        <div class="form-group"><label for="MotherEmail">MotherEmail</label>
+            <input type="text" name="MotherEmail" id="MotherEmail">
+        </div>
+        <p class="title">SPOUSE</p>
+        <div class="form-group"><label for="SpouseName">SpouseName</label>
+            <input type="text" name="SpouseName" id="SpouseName">
+        </div>
+        <div class="form-group"><label for="SPOUSEAge">SPOUSEAge</label>
+            <input type="text" name="SpouseAge" id="SpouseAge">
+        </div>
+        <div class="form-group"><label for="SpouseOccupation">SpouseOccupation</label>
+            <input type="text" name="SpouseOccupation" id="SpouseOccupation">
+        </div>
+        <div class="form-group"><label for="SpouseTel">SpouseTel</label>
+            <input type="text" name="SpouseTel" id="SpouseTel">
+        </div>
+        <div class="form-group"><label for="SpouseEmail">SpouseEmail</label>
+            <input type="text" name="SpouseEmail" id="SpouseEmail">
+        </div>
+        <p class="title1">Special skills or interests</p>
+        <p class="title">工作经历，特长及爱好/SPECIAL SKILLS OR INTERESTS</p>
+
+        <div class="form-group">
+            <textarea name="interests" id="interests"></textarea>
+        </div>
+        <p class="title1">Mailing Address</p>
+        <p class="title">MAILING ADDRESS</p>
+        <div class="form-group">
+            <span class="a">*</span>
+            <label for="MailingAddressName">Name</label>
+            <input type="text" name="MailingAddressName" id="MailingAddressName">
+        </div>
+        <div class="form-group"><span class="a">*</span>
+            <label for="MailingAddressTel">Tel</label>
+            <input type="text" name="MailingAddressTel" id="MailingAddressTel">
+        </div>
+        <div class="form-group"><label for="MailingAddressMobile">Mobile</label>
+            <input type="text" name="MailingAddressMobile" id="MailingAddressMobile">
+        </div>
+        <div class="form-group"><span class="a">*</span>
+            <label for="MailingAddressBuilding">Building</label>
+            <input type="text" name="MailingAddressBuilding" id="MailingAddressBuilding">
+        </div>
+        <div class="form-group"><span class="a">*</span>
+            <label for="MailingAddressStreet">Street</label>
+            <input type="text" name="MailingAddressStreet" id="MailingAddressStreet">
+            <span class="a">*</span>
+            <label for="MailingAddressCity">City</label>
+            <input type="text" name="MailingAddressCity" id="MailingAddressCity">
+        </div>
+        <div class="form-group"> <span class="a">*</span>
+            <fieldset data-role="fieldcontain">
+                <label for="MailingAddressCountry">Country</label>
+                <select name="MailingAddressCountry" id="MailingAddressCountry">
+                    <option>--select option--</option>
+                </select>
+            </fieldset></div>
+        <div class="form-group"> <label for="MailingAddressPostcode">Mobile</label>
+            <input type="text" name="MailingAddressPostcode" id="MailingAddressPostcode">
+        </div>
+        <p class="title1">Declaration</p>
+        <div class="form-group"> <fieldset data-role="controlgroup">
+            <input type="checkbox" name="Declaration" id="Declaration" value="Declaration">
+            <span>All information and materials given in this form are true and correct. During my stay in China, I shall abide the laws and decrees of the Chinese government, and will not participate in any activities in China which are deemed to be adverse to the social order of China and are inappropriate to the capacity as a student.</span>
+        </fieldset></div>
+        <a data-role="button" href="#" >保存</a>
+        <a data-role="button" href="#">下一步</a>
+        <input type="button" id="save" value="保存" name="submit" >
+        <input type="button" id="applySubmit" value="提交" name="submit" >
+
+
+
+
+    </form>
+</div>
+
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/matrix.js"></script>
+</body>
+</html>
