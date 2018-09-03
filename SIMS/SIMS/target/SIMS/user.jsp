@@ -60,26 +60,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="user.jsp">首页</a></li>
                     <!--<li class="active"><a href="Application.html">访客预约</a></li>-->
-                    <!--下拉式-->
-                    <li class="dropdown"><a href="">预约申请<i class="fa fa-angle-down"></i></a>
-                        <ul role="menu" class="sub-menu">
-                            <li><a href="/notprocessed.jsp">未处理</a></li>
-                            <li><a href="/processed.jsp">过往申请</a></li>
-                        </ul>
-                    </li>
-                    <%--<li><%=user.getUserName()%></li>--%>
                     <li><a href="/history.jsp">来访记录</a></li>
-                    <li><a href="/information.jsp">个人信息</a></li>
+                    <li><a href="/CCReader.jsp">在线识别</a></li>
+                <%--<li><a href="/information.jsp">个人信息</a></li>--%>
                 </ul>
             </div>
-            <div class="search">
-                <form role="form">
-                    <i class="fa fa-search"></i>
-                    <div class="field-toggle">
-                        <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                    </div>
-                </form>
-            </div>
+            <%--<div class="search">--%>
+                <%--<form role="form">--%>
+                    <%--<i class="fa fa-search"></i>--%>
+                    <%--<div class="field-toggle">--%>
+                        <%--<input type="text" class="search-form" autocomplete="off" placeholder="Search">--%>
+                    <%--</div>--%>
+                <%--</form>--%>
+            <%--</div>--%>
         </div>
     </div>
 </header>

@@ -49,8 +49,8 @@
         </div>
         <br>
         <div class="form-actions">
-            <span class="pull-left"><a href="" class="flip-link" id="to-recover">忘记</a></span>
-            <span class="pull-center"><input type="submit" class="btn btn-inverse" value="登录" /></span>
+            <span class="pull-left"><a class="flip-link" id="to-recover">忘记</a></span>
+            <span class="pull-center"><input type="submit" id="login" class="btn btn-inverse" value="登录" /></span>
             <span class="pull-right"><a href="registered.jsp" class="fluid-link" id="to-register">注册</a></span>
         </div>
     </form>
@@ -88,5 +88,6 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/login.js"></script>
+
 </body>
 </html>

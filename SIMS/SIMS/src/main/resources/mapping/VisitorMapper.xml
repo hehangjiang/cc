@@ -17,9 +17,9 @@
 
     <!--用户注册-->
     <insert id="application">
-        INSERT INTO visitor (visitorName,visitorPhone,visitorEmail,host,visitTime,message,agree,colorCode,visited)
+        INSERT INTO visitor (visitorName,visitorPhone,visitorEmail,host,visitTime,message,agree,colorCode,visited, visitorPic)
         VALUE (#{visitorName},#{visitorPhone},#{visitorEmail},#{host},#{visitTime},#{message},
-              #{agree},#{colorCode},#{visited})
+              #{agree},#{colorCode},#{visited},#{visitorPic})
     </insert>
 
     <!--根据agree统计申请总人次、来访人次、未处理人次-->

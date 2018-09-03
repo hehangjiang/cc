@@ -14,18 +14,20 @@
     <!--对移动设备友好，确保适当的绘制和触屏缩放-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/lightbox.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <link href="css/fileinput.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/animate.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/lightbox.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/main.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/responsive.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/css/fileinput.min.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="<%=request.getContextPath() %>/js/html5shiv.js"></script>
+    <script src="<%=request.getContextPath() %>/js/respond.min.js"></script>
+    <script src="<%=request.getContextPath() %>/js/ajaxfileupload.js"></script>
+    <script src="<%=request.getContextPath() %>/js/jquery-3.2.1.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -84,6 +86,13 @@
         </div>
     </header>
 
+    <div class="alert alert-warning" id="warning" hidden="hidden">
+        <a class="close" data-dismiss="alert">
+            &times;
+        </a>
+        <strong>警告！</strong>您的网络连接有问题。
+    </div>
+
     <section>
         <div class="container">
             <div class="row">
@@ -106,26 +115,36 @@
                             <div class="form-group">
                                 <input type="text" name="host" class="form-control" required="required" placeholder="预访对象">
                             </div>
-                            <%--<div class="form-group">--%>
-                                <%--<div class='input-group date' id='datetimepicker11'>--%>
-                                    <%--<input type='text' class="form-control" name="visitTime" required="required" placeholder="来访时间">--%>
-                                    <%--<span class="input-group-addon">--%>
-                                            <%--<span class="glyphicon glyphicon-calendar"></span>--%>
-                                        <%--</span>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
+                            <div class="form-group">
+                                <div class='input-group date form_datetime' id='datetimepicker11'>
+                                    <input type='text' class="form-control" name="visitTime" required="required" placeholder="来访时间">
+                                    <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <%--<textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="来访目的简要描述"></textarea>--%>
                                 <textarea name="message" required="required" class="form-control" rows="8" placeholder="来访目的简要描述"></textarea>
 
+                            <label  class="col-sm-3 control-label">上传面部照片</label>
+                            <div class="col-sm-8">
+                                <img id="headimage" class="cover-radius"  src="${basePath}/images/人脸识别.png" style="cursor: pointer;" />
+                                <input id="picture_upload" name="visitorPic" type="file" onchange="upload_cover(this)" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;"/>
+                                <small class="help-block cover-tips" style="color: #dd4b39;display: none;">请上传照片</small>
                             </div>
-                            <!--<div class="form-group">-->
-                            <!--<input class="projectfile" type="file" name="image"  placeholder="面部图片" value="${deal.image}>-->
-                            <!--</div>-->
+
                             <div class="form-group">
                                 <input type="submit" name="submit" class="btn btn-submit" value="提交">
                             </div>
                         </form>
+
+                        <%--<form name="Form2" action="${pageContext.request.contextPath}/Visitor/imageUpload.actionf?" method="post"  enctype="multipart/form-data">--%>
+                            <%--<h1>使用spring mvc提供的类的方法上传文件</h1>--%>
+                            <%--<input type="file" name="file">--%>
+                            <%--<input type="submit" value="upload"/>--%>
+                        <%--</form>--%>
+
                     </div>
                 </div>
 
@@ -189,11 +208,64 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lightbox.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/wow.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/main.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="<%=request.getContextPath() %>/js/ajaxfileupload.js"></script>
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({
+            language:  'zh-CN',  //日期
+            format: "yyyy-mm-dd hh:ii",
+            showMeridian: true,
+            autoclose: true,
+            todayBtn: true
+        });
+    </script>
+
+    <script>
+        function upload_cover(obj) {
+            ajax_upload(obj.id, function(data) { //function(data)是上传图片的成功后的回调方法
+                var isrc = data.replace(/\/\//g, '/'); //获取的图片的绝对路径
+                console.log(isrc)
+                print(isrc)
+
+                $('#headimage').attr('src', isrc); //给<input>的src赋值去显示图片
+            });
+        }
+        function ajax_upload(feid, callback) { //具体的上传图片方法
+            if (image_check(feid)) { //自己添加的文件后缀名的验证
+                $.ajaxFileUpload({
+                    fileElementId: feid,    //需要上传的文件域的ID，即<input type="file">的ID。
+                    url: "${pageContext.request.contextPath}/Visitor/imageUpload", //后台方法的路径
+                    type: 'post',   //当要提交自定义参数时，这个参数要设置成post
+                    dataType: 'json',   //服务器返回的数据类型。可以为xml,script,json,html。如果不填写，jQuery会自动判断。
+                    secureuri: false,   //是否启用安全提交，默认为false。
+                    async : true,   //是否是异步
+                    success: function(data) {   //提交成功后自动执行的处理函数，参数data就是服务器返回的数据。
+                        $("#warning").show();
+                        if (callback) callback.call(this, data);
+                        window.showModalDialog('图片上传成功！')
+                        alert('图片上传成功！')
+                    },
+                    error: function(data, status, e) {  //提交失败自动执行的处理函数。
+                        console.error(e);
+                        alert('图片上传失败！')
+                    }
+                });
+            }
+        }
+        function image_check(feid) { //自己添加的文件后缀名的验证
+            var img = document.getElementById(feid);
+            return /.(jpg|png|gif|bmp)$/.test(img.value)?true:(function() {
+//                modals.info('图片格式仅支持jpg、png、gif、bmp格式，且区分大小写。');
+                return false;
+            })();
+        }
+    </script>
 
 </body>
 </html>

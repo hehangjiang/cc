@@ -12,6 +12,6 @@ import java.util.Date;
 public interface VisitorService {
 
     Integer application(String visitorName, String visitorPhone, String visitorEmail,
-                         String host, String visitTime, String message);
+                         String host, String visitTime, String message, String visitorPic);
 
 }

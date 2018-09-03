@@ -29,14 +29,14 @@ public class VisitorServiceImpl implements VisitorService{
     }
 
     public Integer application(String visitorName, String visitorPhone, String visitorEmail,
-                                String host, String visitTime, String message) {
+                                String host, String visitTime, String message, String visitorPic) {
         int agree = 0;
         int colorCode = 0;
         int visited = 0;
         Integer check = userDao.checkHost(host);
         if (check != 0){
             return visitorDao.application(visitorName,visitorPhone,visitorEmail,host,visitTime, message,
-                                            agree,colorCode,visited);
+                                            agree,colorCode,visited, visitorPic);
         }else {
             return 0;
         }

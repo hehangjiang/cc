@@ -83,6 +83,9 @@
     </div>
 </header>
 
+
+
+
 <!--一个总数统计-->
 <section id="main-content">
     <div class="container">
@@ -114,17 +117,37 @@
     </div>
 </section>
 
+
+<section id="action" class="responsive">
+    <div class="vertical-center">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!--详细的列表,使用bootstarp-table进行前端分页-->
 <div class="container">
     <div class="row" >
         <div class="col-sm-offset-2 col-sm-8">
-            <h3 class="panel panel-title text-center">待处理申请</h3>
+            <h2 class="panel panel-title text-center"><strong>待处理申请</strong></h2>
             <%--<table id="list_visitor_table"></table>--%>
             <table id="list_visitor_table"></table>
         </div>
     </div>
 </div>
 
+<div class="container">
+    <div class="row" >
+        <div class="col-sm-offset-2 col-sm-8">
+            <h2 class="panel panel-title text-center"><strong>已通过申请</strong></h2>
+            <%--<table id="list_visitor_table"></table>--%>
+            <table id="list_visited_table"></table>
+        </div>
+    </div>
+</div>
 
 
 </body>
@@ -234,6 +257,7 @@
                                     return subDate(value);
                                     }
                             },
+                            {field:"message",title:"简要备注",align:"center",valign:"middle",sortable:"true"},
                             {field:"button",title:"操作",events:operateEvents,formatter:AddFunctionAlty,align:"center",valign:"middle",sortable:"true"}
                         ],
                     data:results,
@@ -246,6 +270,56 @@
             }
         }
     })
+
+    //获取已通过申请人员信息
+    $.ajax({
+        url: "${pageContext.request.contextPath}/User/agreed",
+        type: "POST",
+        data: {userName:host},
+        datatype:"json",
+        async: false,
+        success: function(dates){
+            console.log("通过",dates);
+            $(function () {
+                $("#list_visited_table").bootstrapTable({
+                    method: 'get',
+                    cache: false,
+                    height: 400,
+                    striped: true,        //设置为 true 会有隔行变色效果
+                    undefinedText: "空",  //当数据为 undefined 时显示的字符
+                    pagination: true,     //分页
+                    pageSize: 5,          //如果设置了分页，页面数据条数
+                    pageNumber:1,         //如果设置了分页，首页页码
+                    pageList: [10, 20, 50, 100, 200, 500],
+                    search: true,   //显示搜索框
+                    showColumns: true,   //是否显示 内容列下拉框
+                    showRefresh: false,
+                    showExport: false,
+                    exportTypes: ['csv','txt','xml'],
+                    clickToSelect: true,
+                    columns:
+                        [
+                            {field:"checked",checkbox:true},
+                            {field:"visitorName",title:"访客姓名",align:"center",valign:"middle",sortable:"true"},
+                            {field:"visitorPhone",title:"访客电话",align:"center",valign:"middle",sortable:"true"},
+                            {field:"visitTime",title:"来访时间",align:"center",valign:"middle",sortable:"true",
+                                formatter: function (value, row, index) {
+                                    return subDate(value);
+                                }
+                            },
+                            {field:"colorCode",title:"彩码编号",align:"center",valign:"middle",sortable:"true"}
+                        ],
+                    data:dates,
+                });
+            })
+        },
+        error: function(result, status) {
+            if (status == 'error') {
+                alert("人员待处理名单加载发生错误");
+            }
+        }
+    })
+
 
     //转换日期格式(时间戳转换为datetime格式)
     function changeDateFormat(cellval) {
@@ -335,7 +409,5 @@
             })
         }
     }
-
-
 </script>
 </html>

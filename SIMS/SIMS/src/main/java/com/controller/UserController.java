@@ -33,14 +33,16 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/login")
-    public String login(User loginUser,HttpSession session){
-        User res = userService.login(loginUser.getUserAccount(),loginUser.getUserPassword());
+    public String login(String userAccount, String userPassword, HttpSession session){
+        User res = userService.login(userAccount, userPassword);
         if (res != null){
             session.setAttribute("user",res);
             return "redirect:/user.jsp";
         }
         return "redirect:/Login.jsp";
     }
+
+
 
     //注册
     @RequestMapping("/registered")

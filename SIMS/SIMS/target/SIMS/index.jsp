@@ -48,7 +48,7 @@
             <!--右侧的导航栏-->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="Head.html">首页</a></li>
+                    <li class="active"><a href="index.jsp">首页</a></li>
                     <li><a href="application.jsp">访客预约</a></li>
                     <li><a href="Login.jsp">住户登录</a></li>
                 </ul>

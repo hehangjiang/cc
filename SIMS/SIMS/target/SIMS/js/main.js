@@ -125,6 +125,4 @@ jQuery(function($) {'use strict';
 		});
 	}
 
-	if()
-
 });

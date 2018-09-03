@@ -19,7 +19,7 @@ public interface VisitorDao {
     Integer application(@Param("visitorName") String visitorName, @Param("visitorPhone") String visitorPhone,
                         @Param("visitorEmail") String visitorEmail, @Param("host") String host,
                         @Param("visitTime") String visitTime, @Param("message") String message,
-                        @Param("agree") int agree, @Param("colorCode") int colorCode, @Param("visited") int visited);
+                        @Param("agree") int agree, @Param("colorCode") int colorCode, @Param("visited") int visited, @Param("visitorPic") String visitorPic);
 
     Integer countByAgree(@Param("host") String host, @Param("agree") Integer agree);
 

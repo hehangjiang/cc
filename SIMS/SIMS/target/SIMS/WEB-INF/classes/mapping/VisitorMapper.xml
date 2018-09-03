@@ -11,13 +11,15 @@
         <result column="visitTime" property="visitTime" jdbcType="VARCHAR"/>
         <result column="message" property="message" jdbcType="VARCHAR"/>
         <result column="image" property="image" jdbcType="VARCHAR"/>
+        <result column="colorCode" property="colorCode" jdbcType="INTEGER"/>
 
     </resultMap>
 
     <!--用户注册-->
     <insert id="application">
-        INSERT INTO visitor (visitorName,visitorPhone,visitorEmail,host,message,agree)
-        VALUE (#{visitorName},#{visitorPhone},#{visitorEmail},#{host},#{message},#{agree})
+        INSERT INTO visitor (visitorName,visitorPhone,visitorEmail,host,visitTime,message,agree,colorCode,visited, visitorPic)
+        VALUE (#{visitorName},#{visitorPhone},#{visitorEmail},#{host},#{visitTime},#{message},
+              #{agree},#{colorCode},#{visited},#{visitorPic})
     </insert>
 
     <!--根据agree统计申请总人次、来访人次、未处理人次-->
@@ -35,6 +37,12 @@
 
     <update id="agree">
         UPDATE visitor
+        SET agree = #{agree}, colorCode = #{colorCode}
+        WHERE visitorName = #{visitorName} AND host = #{host} AND visitTime = #{visitTime}
+    </update>
+
+    <update id="disagree">
+        UPDATE visitor
         SET agree = #{agree}
         WHERE visitorName = #{visitorName} AND host = #{host} AND visitTime = #{visitTime}
     </update>
@@ -45,5 +53,28 @@
         WHERE host = #{host} AND agree = #{agree}
     </select>
 
+    <!--根据彩码查询-->
+    <select id="queryByCC" resultMap="VisitorBaseMap">
+        SELECT * FROM visitor
+        WHERE colorCode = #{colorCode}
+    </select>
 
+    <!--&lt;!&ndash;添加彩码&ndash;&gt;-->
+    <!--<update id="addCC">-->
+        <!--UPDATE visitor-->
+        <!--SET colorCode = #{colorCode}-->
+        <!--WHERE visitorName = #{visitorName} AND visitTime = #{visitTime} AND host = #{host}-->
+    <!--</update>-->
+
+    <!--添加来访记录-->
+    <update id="addVisited">
+        UPDATE visitor
+        SET visited = 1
+        WHERE colorCode = #{colorCode}
+    </update>
+
+    <!--获取已有的最大的彩码值-->
+    <select id="maxCC" resultType="Integer">
+        SELECT MAX(colorCode) FROM visitor
+    </select>
 </mapper>
